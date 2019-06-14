@@ -7,3 +7,12 @@ before_install:
 
 script:
   - docker run superauman/docker-react npm run test -- --coverage
+
+deploy :
+  provider : elasticbeanstalk
+  region : "ap-southeast-1"
+  app : "Docker-React"
+  end : "DockerReact-env"
+  bucket_name : "elasticbeanstalk-ap-southeast-1-253424059284"
+  on:
+    branch : "master"
